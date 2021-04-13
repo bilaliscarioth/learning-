@@ -41,7 +41,7 @@ class coreMainGame {
           j=0;
         }
       }
-      if(board[i][j] != 'O' || board[i][j] != 'O'){ // On vérifie bien que le joueur bouge son pion
+      if(board[i][j] == 'O' || board[i][j] == 'X'){ // On vérifie bien que le joueur bouge son pion
         board[i][j] = ' ';
         i = j = 0;
         while(i*10+j != to){
