@@ -2,24 +2,30 @@
 
 class coreMainGame {
   private: 
-    char board[10][10] = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}; //notre plateau
-    char mark[2] = {'O', 'X'}; //Nos joueurs
-    int O_ = 20; // Nombre de pions
-    int X_ = 20; 
-    int player = 0;
+    char board[10][10];
+    char mark[2]; //Nos joueurs
+    int O_;
+    int X_; 
+    int player;
+		int storageEmplacement[2];
   public:
     void fillBoard(){
-	  for(int i=0; i < 10; ++i){
-	    for(int j=0; j < 10; ++j){
-		  if((i+j+1)%2 == 0 && (i*10+j) <= 39)
-		    board[i][j] = mark[1];
-          else if((i+j+1)%2 == 0 && (i*10+j) > 59)
-		    board[i][j] = mark[0];
-          else board[i][j] = ' ';
-	    }
-	  }	
-    }
-    void displayBoard(){
+			player = 0;
+			mark[0] = 'O';
+			mark[1] = 'X';
+			O_ = 20;
+			X_ = 20;
+			for(int i=0; i < 10; ++i){
+				for(int j=0; j < 10; ++j){
+					if((i+j+1)%2 == 0 && (i*10+j) <= 39)
+		    		board[i][j] = mark[1];
+					else if((i+j+1)%2 == 0 && (i*10+j) > 59)
+						board[i][j] = mark[0];
+					else board[i][j] = ' ';
+	    	}
+	  	}	
+  	}
+		void displayBoard(){
       for(int i= 0; i < 10; ++i){
 	    cout << "+---+---+---+---+---+---+---+---+---+---+" << endl;
         for(int j=0; j < 10; j++)
@@ -45,7 +51,6 @@ class coreMainGame {
         }
       }
       if(board[i][j] == mark[player] ){ // On vérifie bien que le joueur bouge son pion
-        board[i][j] = ' ';
         i = j = 0;
         while(i*10+j != to){
           j++;
