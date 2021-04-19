@@ -1,15 +1,27 @@
 #include "include.h"
 
 class coreMainGame {
-  private: 
-    char board[10][10];
-    char mark[2]; //Nos joueurs
-    int O_;
-    int X_; 
-    int player;
-		int storageEmplacement[2];
-  public:
-    void fillBoard(){
+	private: 
+		char board[10][10];
+		char mark[2]; //Nos joueurs
+		int O_;
+		int X_; 
+		int player;
+		int storageEmplacement;
+	public:
+		list<int> localiseMark (int where){
+			int i, j;
+			i = j = 0;
+			while(i*10+j != where){
+				j++;
+				if(j == 10){
+					++i;
+					j=0;
+				}
+			}
+			return list<int> (i, j);
+		}
+		void fillBoard(){
 			player = 0;
 			mark[0] = 'O';
 			mark[1] = 'X';
@@ -22,78 +34,63 @@ class coreMainGame {
 					else if((i+j+1)%2 == 0 && (i*10+j) > 59)
 						board[i][j] = mark[0];
 					else board[i][j] = ' ';
-	    	}
-	  	}	
-  	}
+				}
+			}	
+		}
 		void displayBoard(){
-      for(int i= 0; i < 10; ++i){
-	    cout << "+---+---+---+---+---+---+---+---+---+---+" << endl;
+			for(int i= 0; i < 10; ++i){
+	    	cout << "+---+---+---+---+---+---+---+---+---+---+" << endl;
         for(int j=0; j < 10; j++)
           cout << "| " << board[i][j] << " ";
-        cout << "|" << endl;
-      }
-	  cout << "+---+---+---+---+---+---+---+---+---+---+" << endl;
-    }
-    void deplaceMark(int from, int to, int player){
-      if((from < 0 && from > 99) || (to < 0 && to > 99))  //On v√©rifie que le joueur ne propose pas un nombre au pif
-        return;
-      if(!(to-from != -11 || to-from != -9) ||  //On v√©rifie que le joueur parte en diagonale vers le bas
-         !(to-from != 11  || to-from != 9)) //On v√©rifie encore pour la daigonale vers le haut)
-          return;
-      //On met nos indexs
-      int i, j;
-      i = j = 0;
-      while(i*10+j != from){
-        j++;
-        if(j == 10){
-          ++i;
-          j=0;
-        }
-      }
-      if(board[i][j] == mark[player] ){ // On v√©rifie bien que le joueur bouge son pion
-        i = j = 0;
-        while(i*10+j != to){
-          j++;
-          if(j == 10){
-            ++i;
-            j=0;
-          }
-        }
-        if((board[i][j] == 'X' && mark[player] == 'X') ||  // On v√©rifie qu'il ne se mange pas lui m√™me...
-            (board[i][j] == 'O' && mark[player] == 'O'))
-          return;
-        else { //Sinon on enl√®ve bien les pions restants :)
-          if(board[i][j] == 'X' && mark[player] == 'O') --X_; 
-          if(board[i][j] == 'O' && mark[player] == 'X') --O_;
-        }
-        board[i][j] = mark[player];
-        switchPlayer();
-      }else cout << " /!\\ Ce n'est pas ton pion !" << endl;
-    }
-    void switchPlayer(){
-      if(player ==0) ++player;
-      else --player;
-    }
-    int getPlayer(){
-      return player;
-    }
-    bool endGame() {
-      return (O_ == 0 || X_ == 0);  
-    }
+				cout << "|" << endl;
+			}
+			cout << "+---+---+---+---+---+---+---+---+---+---+" << endl;
+		}
+		void deplaceMark(int from, int to, int player){
+			if((from < 0 && from > 99) || (to < 0 && to > 99))  //On vÈrifie que le joueur ne propose pas un nombre au pif
+				return;
+			if(!(to-from != -11 || to-from != -9) ||  //On vÈrifie que le joueur parte en diagonale vers le bas
+					!(to-from != 11 || to-from != 9)) //On vÈrifie encore pour la daigonale vers le haut)
+					return;		
+			cout << localiseMark(from).begin() << endl;			
+			/*if(board[i][j] == mark[player]){ // On vÈrifie bien que le joueur bouge son pion
+				if((board[i][j] == 'X' && board[storageEmplacement[0]][storageEmplacement[1]] == 'X' ) ||  // On vÈrifie qu'il ne se mange pas lui m√™me...
+					(board[i][j]  == 'O' && board[storageEmplacement[0]][storageEmplacement[1]] == 'O'))
+						return;
+				else { //Sinon on enlËve bien les pions restants :)
+					if(board[i][j] == 'x' && mark[player] == 'O') --X_; 
+					if(board[i][j] == 'O' && mark[player] == 'X') --O_;
+					board[storageEmplacement[0]][storageEmplacement[1]] == ' ';
+				}
+				board[storageEmplacement[0]][storageEmplacement[1]] == mark[player];
+				switchPlayer();
+			}else cout << i << " " << j<< " /!\\ Ce n'est pas ton pion !" << endl; */
+			
+		}
+		void switchPlayer(){
+			if(player ==0) ++player;
+			else --player;
+		}
+		int getPlayer(){
+			return player;
+		}
+		bool endGame() {
+			return (O_ == 0 || X_ == 0);  
+		}
 };
 
 
 int main(){
-  coreMainGame core;
-  core.fillBoard();
-  core.displayBoard(); 
-  while(!core.endGame()){
-    int to, from;
-    cout << core.getPlayer() << "Vous bougez quel pion : ";
-    cin >> to;
-    cout << endl << "Ou √ßa : ";
-    cin >> from;
-    core.deplaceMark(to, from, core.getPlayer());
-    core.displayBoard();   
+	coreMainGame core;
+	core.fillBoard();
+	core.displayBoard(); 
+	while(!core.endGame()){
+		int to, from;
+		cout << core.getPlayer() << "Vous bougez quel pion : ";
+		cin >> to;
+		cout << endl << "Ou Áa : ";
+		cin >> from;
+		core.deplaceMark(to, from, core.getPlayer());
+		core.displayBoard();   
   }
 }
