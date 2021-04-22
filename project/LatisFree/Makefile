@@ -222,7 +222,6 @@ DIST          = /usr/local/lib/qt5/mkspecs/features/spec_pre.prf \
 		/usr/local/lib/qt5/mkspecs/features/qt_config.prf \
 		/usr/local/lib/qt5/mkspecs/openbsd-clang/qmake.conf \
 		/usr/local/lib/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/local/lib/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/local/lib/qt5/mkspecs/features/toolchain.prf \
 		/usr/local/lib/qt5/mkspecs/features/default_pre.prf \
@@ -416,7 +415,6 @@ Makefile: LatisFree.pro /usr/local/lib/qt5/mkspecs/openbsd-clang/qmake.conf /usr
 		/usr/local/lib/qt5/mkspecs/features/qt_config.prf \
 		/usr/local/lib/qt5/mkspecs/openbsd-clang/qmake.conf \
 		/usr/local/lib/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/local/lib/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/local/lib/qt5/mkspecs/features/toolchain.prf \
 		/usr/local/lib/qt5/mkspecs/features/default_pre.prf \
@@ -602,7 +600,6 @@ Makefile: LatisFree.pro /usr/local/lib/qt5/mkspecs/openbsd-clang/qmake.conf /usr
 /usr/local/lib/qt5/mkspecs/features/qt_config.prf:
 /usr/local/lib/qt5/mkspecs/openbsd-clang/qmake.conf:
 /usr/local/lib/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/local/lib/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/local/lib/qt5/mkspecs/features/toolchain.prf:
 /usr/local/lib/qt5/mkspecs/features/default_pre.prf:
@@ -677,10 +674,10 @@ compiler_moc_header_make_all: moc_latisfree.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_latisfree.cpp
 moc_latisfree.cpp: latisfree.h \
-		/usr/local/include/X11/qt5/QtWidgets/QWidget \
-		/usr/local/include/X11/qt5/QtWidgets/qwidget.h \
-		/usr/local/include/X11/qt5/QtWidgets/qtwidgetsglobal.h \
-		/usr/local/include/X11/qt5/QtGui/qtguiglobal.h \
+		/usr/local/include/X11/qt5/QtWidgets/QtWidgets \
+		/usr/local/include/X11/qt5/QtWidgets/QtWidgetsDepends \
+		/usr/local/include/X11/qt5/QtCore/QtCore \
+		/usr/local/include/X11/qt5/QtCore/QtCoreDepends \
 		/usr/local/include/X11/qt5/QtCore/qglobal.h \
 		/usr/local/include/X11/qt5/QtCore/qconfig-bootstrapped.h \
 		/usr/local/include/X11/qt5/QtCore/qconfig.h \
@@ -702,14 +699,11 @@ moc_latisfree.cpp: latisfree.h \
 		/usr/local/include/X11/qt5/QtCore/qmutex.h \
 		/usr/local/include/X11/qt5/QtCore/qnumeric.h \
 		/usr/local/include/X11/qt5/QtCore/qversiontagging.h \
-		/usr/local/include/X11/qt5/QtGui/qtgui-config.h \
-		/usr/local/include/X11/qt5/QtWidgets/qtwidgets-config.h \
-		/usr/local/include/X11/qt5/QtGui/qwindowdefs.h \
+		/usr/local/include/X11/qt5/QtCore/qabstractanimation.h \
+		/usr/local/include/X11/qt5/QtCore/qobject.h \
 		/usr/local/include/X11/qt5/QtCore/qobjectdefs.h \
 		/usr/local/include/X11/qt5/QtCore/qnamespace.h \
 		/usr/local/include/X11/qt5/QtCore/qobjectdefs_impl.h \
-		/usr/local/include/X11/qt5/QtGui/qwindowdefs_win.h \
-		/usr/local/include/X11/qt5/QtCore/qobject.h \
 		/usr/local/include/X11/qt5/QtCore/qstring.h \
 		/usr/local/include/X11/qt5/QtCore/qchar.h \
 		/usr/local/include/X11/qt5/QtCore/qbytearray.h \
@@ -736,50 +730,425 @@ moc_latisfree.cpp: latisfree.h \
 		/usr/local/include/X11/qt5/QtCore/qvarlengtharray.h \
 		/usr/local/include/X11/qt5/QtCore/qcontainerfwd.h \
 		/usr/local/include/X11/qt5/QtCore/qobject_impl.h \
-		/usr/local/include/X11/qt5/QtCore/qmargins.h \
-		/usr/local/include/X11/qt5/QtGui/qpaintdevice.h \
-		/usr/local/include/X11/qt5/QtCore/qrect.h \
-		/usr/local/include/X11/qt5/QtCore/qsize.h \
-		/usr/local/include/X11/qt5/QtGui/qpalette.h \
-		/usr/local/include/X11/qt5/QtGui/qcolor.h \
-		/usr/local/include/X11/qt5/QtGui/qrgb.h \
-		/usr/local/include/X11/qt5/QtGui/qrgba64.h \
-		/usr/local/include/X11/qt5/QtGui/qbrush.h \
-		/usr/local/include/X11/qt5/QtGui/qmatrix.h \
-		/usr/local/include/X11/qt5/QtGui/qpolygon.h \
-		/usr/local/include/X11/qt5/QtGui/qregion.h \
-		/usr/local/include/X11/qt5/QtCore/qdatastream.h \
-		/usr/local/include/X11/qt5/QtCore/qiodevice.h \
-		/usr/local/include/X11/qt5/QtCore/qline.h \
-		/usr/local/include/X11/qt5/QtGui/qtransform.h \
-		/usr/local/include/X11/qt5/QtGui/qpainterpath.h \
-		/usr/local/include/X11/qt5/QtGui/qimage.h \
-		/usr/local/include/X11/qt5/QtGui/qpixelformat.h \
-		/usr/local/include/X11/qt5/QtGui/qpixmap.h \
-		/usr/local/include/X11/qt5/QtCore/qsharedpointer.h \
-		/usr/local/include/X11/qt5/QtCore/qshareddata.h \
-		/usr/local/include/X11/qt5/QtCore/qhash.h \
-		/usr/local/include/X11/qt5/QtCore/qsharedpointer_impl.h \
-		/usr/local/include/X11/qt5/QtGui/qfont.h \
-		/usr/local/include/X11/qt5/QtGui/qfontmetrics.h \
-		/usr/local/include/X11/qt5/QtGui/qfontinfo.h \
-		/usr/local/include/X11/qt5/QtWidgets/qsizepolicy.h \
-		/usr/local/include/X11/qt5/QtGui/qcursor.h \
-		/usr/local/include/X11/qt5/QtGui/qkeysequence.h \
-		/usr/local/include/X11/qt5/QtGui/qevent.h \
+		/usr/local/include/X11/qt5/QtCore/qabstracteventdispatcher.h \
+		/usr/local/include/X11/qt5/QtCore/qeventloop.h \
+		/usr/local/include/X11/qt5/QtCore/qabstractitemmodel.h \
 		/usr/local/include/X11/qt5/QtCore/qvariant.h \
 		/usr/local/include/X11/qt5/QtCore/qmap.h \
 		/usr/local/include/X11/qt5/QtCore/qdebug.h \
+		/usr/local/include/X11/qt5/QtCore/qhash.h \
 		/usr/local/include/X11/qt5/QtCore/qtextstream.h \
+		/usr/local/include/X11/qt5/QtCore/qiodevice.h \
 		/usr/local/include/X11/qt5/QtCore/qlocale.h \
+		/usr/local/include/X11/qt5/QtCore/qshareddata.h \
 		/usr/local/include/X11/qt5/QtCore/qset.h \
 		/usr/local/include/X11/qt5/QtCore/qcontiguouscache.h \
+		/usr/local/include/X11/qt5/QtCore/qsharedpointer.h \
+		/usr/local/include/X11/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/local/include/X11/qt5/QtCore/qabstractnativeeventfilter.h \
+		/usr/local/include/X11/qt5/QtCore/qabstractproxymodel.h \
+		/usr/local/include/X11/qt5/QtCore/qabstractstate.h \
+		/usr/local/include/X11/qt5/QtCore/qabstracttransition.h \
+		/usr/local/include/X11/qt5/QtCore/qanimationgroup.h \
+		/usr/local/include/X11/qt5/QtCore/qarraydataops.h \
+		/usr/local/include/X11/qt5/QtCore/qarraydatapointer.h \
+		/usr/local/include/X11/qt5/QtCore/qbasictimer.h \
+		/usr/local/include/X11/qt5/QtCore/qbitarray.h \
+		/usr/local/include/X11/qt5/QtCore/qbuffer.h \
+		/usr/local/include/X11/qt5/QtCore/qbytearraymatcher.h \
+		/usr/local/include/X11/qt5/QtCore/qcache.h \
+		/usr/local/include/X11/qt5/QtCore/qcborarray.h \
+		/usr/local/include/X11/qt5/QtCore/qcborvalue.h \
+		/usr/local/include/X11/qt5/QtCore/qdatetime.h \
+		/usr/local/include/X11/qt5/QtCore/qcborcommon.h \
+		/usr/local/include/X11/qt5/QtCore/qregularexpression.h \
 		/usr/local/include/X11/qt5/QtCore/qurl.h \
 		/usr/local/include/X11/qt5/QtCore/qurlquery.h \
+		/usr/local/include/X11/qt5/QtCore/quuid.h \
+		/usr/local/include/X11/qt5/QtCore/qcbormap.h \
+		/usr/local/include/X11/qt5/QtCore/qcborstream.h \
+		/usr/local/include/X11/qt5/QtCore/qfloat16.h \
+		/usr/local/include/X11/qt5/QtCore/qcollator.h \
+		/usr/local/include/X11/qt5/QtCore/qcommandlineoption.h \
+		/usr/local/include/X11/qt5/QtCore/qcommandlineparser.h \
+		/usr/local/include/X11/qt5/QtCore/qcoreapplication.h \
+		/usr/local/include/X11/qt5/QtCore/qconcatenatetablesproxymodel.h \
+		/usr/local/include/X11/qt5/QtCore/qcryptographichash.h \
+		/usr/local/include/X11/qt5/QtCore/qdatastream.h \
+		/usr/local/include/X11/qt5/QtCore/qdeadlinetimer.h \
+		/usr/local/include/X11/qt5/QtCore/qelapsedtimer.h \
+		/usr/local/include/X11/qt5/QtCore/qdir.h \
+		/usr/local/include/X11/qt5/QtCore/qfileinfo.h \
 		/usr/local/include/X11/qt5/QtCore/qfile.h \
 		/usr/local/include/X11/qt5/QtCore/qfiledevice.h \
+		/usr/local/include/X11/qt5/QtCore/qdiriterator.h \
+		/usr/local/include/X11/qt5/QtCore/qeasingcurve.h \
+		/usr/local/include/X11/qt5/QtCore/qendian.h \
+		/usr/local/include/X11/qt5/QtCore/qeventtransition.h \
+		/usr/local/include/X11/qt5/QtCore/qexception.h \
+		/usr/local/include/X11/qt5/QtCore/qfactoryinterface.h \
+		/usr/local/include/X11/qt5/QtCore/qfileselector.h \
+		/usr/local/include/X11/qt5/QtCore/QObject \
+		/usr/local/include/X11/qt5/QtCore/QStringList \
+		/usr/local/include/X11/qt5/QtCore/qfilesystemwatcher.h \
+		/usr/local/include/X11/qt5/QtCore/qfinalstate.h \
+		/usr/local/include/X11/qt5/QtCore/qfuture.h \
+		/usr/local/include/X11/qt5/QtCore/qfutureinterface.h \
+		/usr/local/include/X11/qt5/QtCore/qrunnable.h \
+		/usr/local/include/X11/qt5/QtCore/qresultstore.h \
+		/usr/local/include/X11/qt5/QtCore/qfuturesynchronizer.h \
+		/usr/local/include/X11/qt5/QtCore/qfuturewatcher.h \
+		/usr/local/include/X11/qt5/QtCore/qhistorystate.h \
+		/usr/local/include/X11/qt5/QtCore/qidentityproxymodel.h \
+		/usr/local/include/X11/qt5/QtCore/qisenum.h \
+		/usr/local/include/X11/qt5/QtCore/qitemselectionmodel.h \
+		/usr/local/include/X11/qt5/QtCore/qjsonarray.h \
+		/usr/local/include/X11/qt5/QtCore/qjsonvalue.h \
+		/usr/local/include/X11/qt5/QtCore/qjsondocument.h \
+		/usr/local/include/X11/qt5/QtCore/qjsonobject.h \
+		/usr/local/include/X11/qt5/QtCore/qlibrary.h \
+		/usr/local/include/X11/qt5/QtCore/qlibraryinfo.h \
+		/usr/local/include/X11/qt5/QtCore/qversionnumber.h \
+		/usr/local/include/X11/qt5/QtCore/qline.h \
+		/usr/local/include/X11/qt5/QtCore/qlinkedlist.h \
+		/usr/local/include/X11/qt5/QtCore/qlockfile.h \
+		/usr/local/include/X11/qt5/QtCore/qloggingcategory.h \
+		/usr/local/include/X11/qt5/QtCore/qmargins.h \
+		/usr/local/include/X11/qt5/QtCore/qmath.h \
+		/usr/local/include/X11/qt5/QtCore/qmessageauthenticationcode.h \
+		/usr/local/include/X11/qt5/QtCore/qmetaobject.h \
+		/usr/local/include/X11/qt5/QtCore/qmimedata.h \
+		/usr/local/include/X11/qt5/QtCore/qmimedatabase.h \
+		/usr/local/include/X11/qt5/QtCore/qmimetype.h \
+		/usr/local/include/X11/qt5/QtCore/qobjectcleanuphandler.h \
+		/usr/local/include/X11/qt5/QtCore/qoperatingsystemversion.h \
+		/usr/local/include/X11/qt5/QtCore/qparallelanimationgroup.h \
+		/usr/local/include/X11/qt5/QtCore/qpauseanimation.h \
+		/usr/local/include/X11/qt5/QtCore/qplugin.h \
+		/usr/local/include/X11/qt5/QtCore/qpointer.h \
+		/usr/local/include/X11/qt5/QtCore/qpluginloader.h \
+		/usr/local/include/X11/qt5/QtCore/qprocess.h \
+		/usr/local/include/X11/qt5/QtCore/qpropertyanimation.h \
+		/usr/local/include/X11/qt5/QtCore/qvariantanimation.h \
+		/usr/local/include/X11/qt5/QtCore/qqueue.h \
+		/usr/local/include/X11/qt5/QtCore/qrandom.h \
+		/usr/local/include/X11/qt5/QtCore/qreadwritelock.h \
+		/usr/local/include/X11/qt5/QtCore/qrect.h \
+		/usr/local/include/X11/qt5/QtCore/qsize.h \
+		/usr/local/include/X11/qt5/QtCore/qresource.h \
+		/usr/local/include/X11/qt5/QtCore/qsavefile.h \
+		/usr/local/include/X11/qt5/QtCore/qscopedvaluerollback.h \
+		/usr/local/include/X11/qt5/QtCore/qscopeguard.h \
+		/usr/local/include/X11/qt5/QtCore/qsemaphore.h \
+		/usr/local/include/X11/qt5/QtCore/qsequentialanimationgroup.h \
+		/usr/local/include/X11/qt5/QtCore/qsettings.h \
+		/usr/local/include/X11/qt5/QtCore/qsharedmemory.h \
+		/usr/local/include/X11/qt5/QtCore/qsignalmapper.h \
+		/usr/local/include/X11/qt5/QtCore/qsignaltransition.h \
+		/usr/local/include/X11/qt5/QtCore/qsocketnotifier.h \
+		/usr/local/include/X11/qt5/QtCore/qsortfilterproxymodel.h \
+		/usr/local/include/X11/qt5/QtCore/qstack.h \
+		/usr/local/include/X11/qt5/QtCore/qstandardpaths.h \
+		/usr/local/include/X11/qt5/QtCore/qstate.h \
+		/usr/local/include/X11/qt5/QtCore/qstatemachine.h \
+		/usr/local/include/X11/qt5/QtCore/qstorageinfo.h \
+		/usr/local/include/X11/qt5/QtCore/qstringlistmodel.h \
+		/usr/local/include/X11/qt5/QtCore/qsystemsemaphore.h \
+		/usr/local/include/X11/qt5/QtCore/qtemporarydir.h \
+		/usr/local/include/X11/qt5/QtCore/qtemporaryfile.h \
+		/usr/local/include/X11/qt5/QtCore/qtextboundaryfinder.h \
+		/usr/local/include/X11/qt5/QtCore/qtextcodec.h \
+		/usr/local/include/X11/qt5/QtCore/qthread.h \
+		/usr/local/include/X11/qt5/QtCore/qthreadpool.h \
+		/usr/local/include/X11/qt5/QtCore/qthreadstorage.h \
+		/usr/local/include/X11/qt5/QtCore/qtimeline.h \
+		/usr/local/include/X11/qt5/QtCore/qtimer.h \
+		/usr/local/include/X11/qt5/QtCore/qtimezone.h \
+		/usr/local/include/X11/qt5/QtCore/qtranslator.h \
+		/usr/local/include/X11/qt5/QtCore/qtransposeproxymodel.h \
+		/usr/local/include/X11/qt5/QtCore/qtypetraits.h \
+		/usr/local/include/X11/qt5/QtCore/qwaitcondition.h \
+		/usr/local/include/X11/qt5/QtCore/qwineventnotifier.h \
+		/usr/local/include/X11/qt5/QtCore/qxmlstream.h \
+		/usr/local/include/X11/qt5/QtCore/qtcoreversion.h \
+		/usr/local/include/X11/qt5/QtGui/QtGui \
+		/usr/local/include/X11/qt5/QtGui/QtGuiDepends \
+		/usr/local/include/X11/qt5/QtGui/qtguiglobal.h \
+		/usr/local/include/X11/qt5/QtGui/qtgui-config.h \
+		/usr/local/include/X11/qt5/QtGui/qabstracttextdocumentlayout.h \
+		/usr/local/include/X11/qt5/QtGui/qtextlayout.h \
+		/usr/local/include/X11/qt5/QtGui/qcolor.h \
+		/usr/local/include/X11/qt5/QtGui/qrgb.h \
+		/usr/local/include/X11/qt5/QtGui/qrgba64.h \
+		/usr/local/include/X11/qt5/QtGui/qevent.h \
+		/usr/local/include/X11/qt5/QtGui/qwindowdefs.h \
+		/usr/local/include/X11/qt5/QtGui/qwindowdefs_win.h \
+		/usr/local/include/X11/qt5/QtGui/qregion.h \
+		/usr/local/include/X11/qt5/QtGui/qkeysequence.h \
 		/usr/local/include/X11/qt5/QtGui/qvector2d.h \
 		/usr/local/include/X11/qt5/QtGui/qtouchdevice.h \
+		/usr/local/include/X11/qt5/QtGui/qtextformat.h \
+		/usr/local/include/X11/qt5/QtGui/qfont.h \
+		/usr/local/include/X11/qt5/QtGui/qpen.h \
+		/usr/local/include/X11/qt5/QtGui/qbrush.h \
+		/usr/local/include/X11/qt5/QtGui/qmatrix.h \
+		/usr/local/include/X11/qt5/QtGui/qpolygon.h \
+		/usr/local/include/X11/qt5/QtGui/qtransform.h \
+		/usr/local/include/X11/qt5/QtGui/qpainterpath.h \
+		/usr/local/include/X11/qt5/QtGui/qimage.h \
+		/usr/local/include/X11/qt5/QtGui/qpaintdevice.h \
+		/usr/local/include/X11/qt5/QtGui/qpixelformat.h \
+		/usr/local/include/X11/qt5/QtGui/qpixmap.h \
+		/usr/local/include/X11/qt5/QtGui/qtextoption.h \
+		/usr/local/include/X11/qt5/QtGui/qglyphrun.h \
+		/usr/local/include/X11/qt5/QtGui/qrawfont.h \
+		/usr/local/include/X11/qt5/QtGui/qfontdatabase.h \
+		/usr/local/include/X11/qt5/QtGui/qtextcursor.h \
+		/usr/local/include/X11/qt5/QtGui/qtextdocument.h \
+		/usr/local/include/X11/qt5/QtGui/qpalette.h \
+		/usr/local/include/X11/qt5/QtGui/qaccessible.h \
+		/usr/local/include/X11/qt5/QtGui/qaccessiblebridge.h \
+		/usr/local/include/X11/qt5/QtGui/qaccessibleobject.h \
+		/usr/local/include/X11/qt5/QtGui/qaccessibleplugin.h \
+		/usr/local/include/X11/qt5/QtGui/qbackingstore.h \
+		/usr/local/include/X11/qt5/QtGui/qwindow.h \
+		/usr/local/include/X11/qt5/QtCore/QEvent \
+		/usr/local/include/X11/qt5/QtCore/QMargins \
+		/usr/local/include/X11/qt5/QtCore/QRect \
+		/usr/local/include/X11/qt5/QtGui/qsurface.h \
+		/usr/local/include/X11/qt5/QtGui/qsurfaceformat.h \
+		/usr/local/include/X11/qt5/QtGui/qicon.h \
+		/usr/local/include/X11/qt5/QtGui/qcursor.h \
+		/usr/local/include/X11/qt5/QtGui/qbitmap.h \
+		/usr/local/include/X11/qt5/QtGui/qclipboard.h \
+		/usr/local/include/X11/qt5/QtGui/qdesktopservices.h \
+		/usr/local/include/X11/qt5/QtGui/qdrag.h \
+		/usr/local/include/X11/qt5/QtGui/qfontinfo.h \
+		/usr/local/include/X11/qt5/QtGui/qfontmetrics.h \
+		/usr/local/include/X11/qt5/QtGui/qgenericmatrix.h \
+		/usr/local/include/X11/qt5/QtGui/qgenericplugin.h \
+		/usr/local/include/X11/qt5/QtGui/qgenericpluginfactory.h \
+		/usr/local/include/X11/qt5/QtGui/qguiapplication.h \
+		/usr/local/include/X11/qt5/QtGui/qinputmethod.h \
+		/usr/local/include/X11/qt5/QtGui/qiconengine.h \
+		/usr/local/include/X11/qt5/QtGui/qiconengineplugin.h \
+		/usr/local/include/X11/qt5/QtGui/qimageiohandler.h \
+		/usr/local/include/X11/qt5/QtGui/qimagereader.h \
+		/usr/local/include/X11/qt5/QtGui/qimagewriter.h \
+		/usr/local/include/X11/qt5/QtGui/qmatrix4x4.h \
+		/usr/local/include/X11/qt5/QtGui/qvector3d.h \
+		/usr/local/include/X11/qt5/QtGui/qvector4d.h \
+		/usr/local/include/X11/qt5/QtGui/qquaternion.h \
+		/usr/local/include/X11/qt5/QtGui/qmovie.h \
+		/usr/local/include/X11/qt5/QtGui/qoffscreensurface.h \
+		/usr/local/include/X11/qt5/QtGui/qopengl.h \
+		/usr/local/include/X11/qt5/QtCore/qt_windows.h \
+		/usr/X11R6/include/GLES3/gl32.h \
+		/usr/X11R6/include/GLES3/gl3platform.h \
+		/usr/X11R6/include/KHR/khrplatform.h \
+		/usr/X11R6/include/GLES3/gl31.h \
+		/usr/X11R6/include/GLES3/gl3.h \
+		/usr/X11R6/include/GLES2/gl2.h \
+		/usr/X11R6/include/GLES2/gl2platform.h \
+		/usr/local/include/X11/qt5/QtGui/qopengles2ext.h \
+		/usr/X11R6/include/GL/gl.h \
+		/usr/X11R6/include/GL/glext.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglext.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglbuffer.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglcontext.h \
+		/usr/local/include/X11/qt5/QtCore/QScopedPointer \
+		/usr/local/include/X11/qt5/QtGui/QSurfaceFormat \
+		/usr/local/include/X11/qt5/QtGui/qopenglversionfunctions.h \
+		/usr/local/include/X11/qt5/QtGui/qopengldebug.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglextrafunctions.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglfunctions.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglframebufferobject.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglpaintdevice.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglpixeltransferoptions.h \
+		/usr/local/include/X11/qt5/QtCore/QSharedDataPointer \
+		/usr/local/include/X11/qt5/QtGui/qopenglshaderprogram.h \
+		/usr/local/include/X11/qt5/QtGui/qopengltexture.h \
+		/usr/local/include/X11/qt5/QtGui/qopengltextureblitter.h \
+		/usr/local/include/X11/qt5/QtGui/QMatrix3x3 \
+		/usr/local/include/X11/qt5/QtGui/QMatrix4x4 \
+		/usr/local/include/X11/qt5/QtGui/qopengltimerquery.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglvertexarrayobject.h \
+		/usr/local/include/X11/qt5/QtGui/qopenglwindow.h \
+		/usr/local/include/X11/qt5/QtGui/QPaintDeviceWindow \
+		/usr/local/include/X11/qt5/QtGui/qpaintdevicewindow.h \
+		/usr/local/include/X11/qt5/QtGui/QWindow \
+		/usr/local/include/X11/qt5/QtGui/QPaintDevice \
+		/usr/local/include/X11/qt5/QtGui/QOpenGLContext \
+		/usr/local/include/X11/qt5/QtGui/QImage \
+		/usr/local/include/X11/qt5/QtGui/qpagedpaintdevice.h \
+		/usr/local/include/X11/qt5/QtGui/qpagelayout.h \
+		/usr/local/include/X11/qt5/QtGui/qpagesize.h \
+		/usr/local/include/X11/qt5/QtGui/qpaintengine.h \
+		/usr/local/include/X11/qt5/QtGui/qpainter.h \
+		/usr/local/include/X11/qt5/QtGui/qpdfwriter.h \
+		/usr/local/include/X11/qt5/QtGui/qpicture.h \
+		/usr/local/include/X11/qt5/QtGui/qpictureformatplugin.h \
+		/usr/local/include/X11/qt5/QtGui/qpixmapcache.h \
+		/usr/local/include/X11/qt5/QtGui/qrasterwindow.h \
+		/usr/local/include/X11/qt5/QtGui/qscreen.h \
+		/usr/local/include/X11/qt5/QtCore/QList \
+		/usr/local/include/X11/qt5/QtCore/QSize \
+		/usr/local/include/X11/qt5/QtCore/QSizeF \
+		/usr/local/include/X11/qt5/QtGui/QTransform \
+		/usr/local/include/X11/qt5/QtGui/qsessionmanager.h \
+		/usr/local/include/X11/qt5/QtGui/qstandarditemmodel.h \
+		/usr/local/include/X11/qt5/QtGui/qstatictext.h \
+		/usr/local/include/X11/qt5/QtGui/qstylehints.h \
+		/usr/local/include/X11/qt5/QtGui/qsyntaxhighlighter.h \
+		/usr/local/include/X11/qt5/QtGui/qtextobject.h \
+		/usr/local/include/X11/qt5/QtGui/qtextdocumentfragment.h \
+		/usr/local/include/X11/qt5/QtGui/qtextdocumentwriter.h \
+		/usr/local/include/X11/qt5/QtGui/qtextlist.h \
+		/usr/local/include/X11/qt5/QtGui/qtexttable.h \
+		/usr/local/include/X11/qt5/QtGui/qvalidator.h \
+		/usr/local/include/X11/qt5/QtGui/qtguiversion.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtwidgetsglobal.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtwidgets-config.h \
+		/usr/local/include/X11/qt5/QtWidgets/qabstractbutton.h \
+		/usr/local/include/X11/qt5/QtWidgets/qwidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qsizepolicy.h \
+		/usr/local/include/X11/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstyleoption.h \
+		/usr/local/include/X11/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qslider.h \
+		/usr/local/include/X11/qt5/QtWidgets/qabstractslider.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstyle.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtabbar.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtabwidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qrubberband.h \
+		/usr/local/include/X11/qt5/QtWidgets/qframe.h \
+		/usr/local/include/X11/qt5/QtWidgets/qabstractitemview.h \
+		/usr/local/include/X11/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/local/include/X11/qt5/QtWidgets/qaccessiblewidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qaction.h \
+		/usr/local/include/X11/qt5/QtWidgets/qactiongroup.h \
+		/usr/local/include/X11/qt5/QtWidgets/qapplication.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdesktopwidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qboxlayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/qlayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/qlayoutitem.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgridlayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/qbuttongroup.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcalendarwidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcheckbox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcolordialog.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdialog.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcolormap.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcolumnview.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcombobox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcommandlinkbutton.h \
+		/usr/local/include/X11/qt5/QtWidgets/qpushbutton.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcommonstyle.h \
+		/usr/local/include/X11/qt5/QtWidgets/qcompleter.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdatawidgetmapper.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdatetimeedit.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdial.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdialogbuttonbox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdirmodel.h \
+		/usr/local/include/X11/qt5/QtWidgets/qfileiconprovider.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdockwidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qdrawutil.h \
+		/usr/local/include/X11/qt5/QtWidgets/qerrormessage.h \
+		/usr/local/include/X11/qt5/QtWidgets/qfiledialog.h \
+		/usr/local/include/X11/qt5/QtWidgets/qfilesystemmodel.h \
+		/usr/local/include/X11/qt5/QtWidgets/qfocusframe.h \
+		/usr/local/include/X11/qt5/QtWidgets/qfontcombobox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qfontdialog.h \
+		/usr/local/include/X11/qt5/QtWidgets/qformlayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/QLayout \
+		/usr/local/include/X11/qt5/QtWidgets/qgesture.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgesturerecognizer.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicsanchorlayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicsitem.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicslayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicslayoutitem.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicseffect.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicsgridlayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicsitemanimation.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicslinearlayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicsproxywidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicswidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicsscene.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicssceneevent.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicstransform.h \
+		/usr/local/include/X11/qt5/QtGui/QVector3D \
+		/usr/local/include/X11/qt5/QtWidgets/qgraphicsview.h \
+		/usr/local/include/X11/qt5/QtWidgets/qscrollarea.h \
+		/usr/local/include/X11/qt5/QtWidgets/qgroupbox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qheaderview.h \
+		/usr/local/include/X11/qt5/QtWidgets/qinputdialog.h \
+		/usr/local/include/X11/qt5/QtWidgets/qlineedit.h \
+		/usr/local/include/X11/qt5/QtWidgets/qitemdelegate.h \
+		/usr/local/include/X11/qt5/QtWidgets/qitemeditorfactory.h \
+		/usr/local/include/X11/qt5/QtWidgets/qkeyeventtransition.h \
+		/usr/local/include/X11/qt5/QtWidgets/qkeysequenceedit.h \
+		/usr/local/include/X11/qt5/QtWidgets/qlabel.h \
+		/usr/local/include/X11/qt5/QtWidgets/qlcdnumber.h \
+		/usr/local/include/X11/qt5/QtWidgets/qlistview.h \
+		/usr/local/include/X11/qt5/QtWidgets/qlistwidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qmainwindow.h \
+		/usr/local/include/X11/qt5/QtWidgets/qmdiarea.h \
+		/usr/local/include/X11/qt5/QtWidgets/qmdisubwindow.h \
+		/usr/local/include/X11/qt5/QtWidgets/qmenu.h \
+		/usr/local/include/X11/qt5/QtWidgets/qmenubar.h \
+		/usr/local/include/X11/qt5/QtWidgets/qmessagebox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qmouseeventtransition.h \
+		/usr/local/include/X11/qt5/QtWidgets/qopenglwidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/QWidget \
+		/usr/local/include/X11/qt5/QtWidgets/qplaintextedit.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtextedit.h \
+		/usr/local/include/X11/qt5/QtWidgets/qprogressbar.h \
+		/usr/local/include/X11/qt5/QtWidgets/qprogressdialog.h \
+		/usr/local/include/X11/qt5/QtWidgets/qproxystyle.h \
+		/usr/local/include/X11/qt5/QtWidgets/QCommonStyle \
+		/usr/local/include/X11/qt5/QtWidgets/qradiobutton.h \
+		/usr/local/include/X11/qt5/QtWidgets/qscrollbar.h \
+		/usr/local/include/X11/qt5/QtWidgets/qscroller.h \
+		/usr/local/include/X11/qt5/QtCore/QPointF \
+		/usr/local/include/X11/qt5/QtWidgets/QScrollerProperties \
+		/usr/local/include/X11/qt5/QtWidgets/qscrollerproperties.h \
+		/usr/local/include/X11/qt5/QtCore/QMetaType \
+		/usr/local/include/X11/qt5/QtCore/QVariant \
+		/usr/local/include/X11/qt5/QtWidgets/qshortcut.h \
+		/usr/local/include/X11/qt5/QtWidgets/qsizegrip.h \
+		/usr/local/include/X11/qt5/QtWidgets/qspinbox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qsplashscreen.h \
+		/usr/local/include/X11/qt5/QtWidgets/qsplitter.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstackedlayout.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstackedwidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstatusbar.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstyleditemdelegate.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstylefactory.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstylepainter.h \
+		/usr/local/include/X11/qt5/QtWidgets/qstyleplugin.h \
+		/usr/local/include/X11/qt5/QtWidgets/qsystemtrayicon.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtableview.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtablewidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtextbrowser.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtoolbar.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtoolbox.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtoolbutton.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtooltip.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtreeview.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtreewidget.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtreewidgetitemiterator.h \
+		/usr/local/include/X11/qt5/QtWidgets/qundogroup.h \
+		/usr/local/include/X11/qt5/QtWidgets/qundostack.h \
+		/usr/local/include/X11/qt5/QtWidgets/qundoview.h \
+		/usr/local/include/X11/qt5/QtWidgets/qwhatsthis.h \
+		/usr/local/include/X11/qt5/QtWidgets/qwidgetaction.h \
+		/usr/local/include/X11/qt5/QtWidgets/qwizard.h \
+		/usr/local/include/X11/qt5/QtWidgets/qtwidgetsversion.h \
+		/usr/local/include/X11/qt5/QtWidgets/QMainWindow \
+		/usr/local/include/X11/qt5/QtWidgets/QHBoxLayout \
+		/usr/local/include/X11/qt5/QtWidgets/QMenu \
+		/usr/local/include/X11/qt5/QtWidgets/QMenuBar \
+		/usr/local/include/X11/qt5/QtWidgets/QApplication \
 		moc_predefs.h \
 		/usr/local/lib/qt5/bin/moc
 	/usr/local/lib/qt5/bin/moc $(DEFINES) --include /home/puffy/learning-/project/LatisFree/moc_predefs.h -I/usr/local/lib/qt5/mkspecs/openbsd-clang -I/home/puffy/learning-/project/LatisFree -I/home/puffy/learning-/project/LatisFree -I/usr/local/include/X11/qt5 -I/usr/local/include/X11/qt5/QtWidgets -I/usr/local/include/X11/qt5/QtGui -I/usr/local/include/X11/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/10.0.1/include -I/usr/include latisfree.h -o moc_latisfree.cpp
@@ -1270,10 +1639,16 @@ main.o: main.cpp /usr/local/include/X11/qt5/QtWidgets/QtWidgets \
 		/usr/local/include/X11/qt5/QtWidgets/qwidgetaction.h \
 		/usr/local/include/X11/qt5/QtWidgets/qwizard.h \
 		/usr/local/include/X11/qt5/QtWidgets/qtwidgetsversion.h \
-		latisfree.h
+		latisfree.h \
+		/usr/local/include/X11/qt5/QtWidgets/QMainWindow \
+		/usr/local/include/X11/qt5/QtWidgets/QHBoxLayout \
+		/usr/local/include/X11/qt5/QtWidgets/QMenu \
+		/usr/local/include/X11/qt5/QtWidgets/QMenuBar \
+		/usr/local/include/X11/qt5/QtWidgets/QApplication
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
-latisfree.o: latisfree.cpp /usr/local/include/X11/qt5/QtWidgets/QtWidgets \
+latisfree.o: latisfree.cpp latisfree.h \
+		/usr/local/include/X11/qt5/QtWidgets/QtWidgets \
 		/usr/local/include/X11/qt5/QtWidgets/QtWidgetsDepends \
 		/usr/local/include/X11/qt5/QtCore/QtCore \
 		/usr/local/include/X11/qt5/QtCore/QtCoreDepends \
@@ -1743,7 +2118,12 @@ latisfree.o: latisfree.cpp /usr/local/include/X11/qt5/QtWidgets/QtWidgets \
 		/usr/local/include/X11/qt5/QtWidgets/qwidgetaction.h \
 		/usr/local/include/X11/qt5/QtWidgets/qwizard.h \
 		/usr/local/include/X11/qt5/QtWidgets/qtwidgetsversion.h \
-		latisfree.h
+		/usr/local/include/X11/qt5/QtWidgets/QMainWindow \
+		/usr/local/include/X11/qt5/QtWidgets/QHBoxLayout \
+		/usr/local/include/X11/qt5/QtWidgets/QMenu \
+		/usr/local/include/X11/qt5/QtWidgets/QMenuBar \
+		/usr/local/include/X11/qt5/QtWidgets/QApplication \
+		ui/topbar.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o latisfree.o latisfree.cpp
 
 moc_latisfree.o: moc_latisfree.cpp 

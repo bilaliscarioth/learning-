@@ -1,8 +1,5 @@
-#include <QtWidgets>
 #include "latisfree.h"
-#include "QMenu"
-#include "QMenuBar"
-#include "QApplication"
+#include "ui/topbar.cpp"
 
 void MainWindow::eventButtonPush(){
 
@@ -10,21 +7,10 @@ void MainWindow::eventButtonPush(){
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent){
 	//Création du projet
-	createProject_ = new QPushButton("Créer un projet", this);
-	openProject_ = new QPushButton("Ouvrir un projet", this);
-	setWindowTitle(tr("LatisPro (GNU GPLv2)"));
-
+ 	//createProject_ = new QPushButton("Créer un projet", this);
+	tBar = new topBar(this);	
 	toolBar	= addToolBar(tr("Outils"));
 	addToolBar(Qt::TopToolBarArea, toolBar);
-	QMenu *file = menuBar()->addMenu("&File");
-	QMenu *display = menuBar()->addMenu("&Affichage");
-	QMenu *calc = menuBar()->addMenu("&Tableur");
-	
-	
-	QHBoxLayout *layout = new QHBoxLayout();
-	layout->addWidget(file);	
-	layout->addWidget(display);
-	layout->addWidget(calc);
 }
 
 

@@ -1,4 +1,3 @@
-#include "QtWidgets"
 #include "latisfree.h"
 
 int main(int argc, char *argv[]){
