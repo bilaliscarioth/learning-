@@ -25,18 +25,18 @@ namespace UI {
 	class MainWindow;
 	class topBar;
 	class allRightWidget;
+	class allLeftWidget;
 }
 
 class allRightWidget : public QWidget {
 	Q_OBJECT
 	public:
 		allRightWidget(QWidget *child);
-	private:
-		QWidget *topRight;
-		QWidget *middleTopRight;
-		QWidget *bottomRight;
-		QWidget *bottomTopRight;
-}
+		QGridLayout *topRight;
+		QGridLayout *middleTopRight;
+		QGridLayout *bottomRight;
+		QGridLayout *bottomTopRight;
+};
 
 class allLeftWidget : public QWidget {
 	Q_OBJECT
@@ -45,7 +45,7 @@ class allLeftWidget : public QWidget {
 	private:
 		QWidget *tableur;
 		QWidget *graph;
-}
+};
 
 class topBar : public QHBoxLayout {
 	Q_OBJECT
@@ -72,6 +72,8 @@ class MainWindow : public QMainWindow{
 		QPushButton *createProject_;
 		QPushButton *openProject_;
 		topBar *tBar;
+		allRightWidget *rBar;
+		allLeftWidget *lBar;
 };
 
 #endif
