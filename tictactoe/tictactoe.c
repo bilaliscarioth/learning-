@@ -4,8 +4,8 @@
 void printTable(char table[3][3]);
 int main() {
 	char table[3][3] = {{'1', '2', '3'}, 
-	  		{'4', '5', '6'}, 
-			{'7', '8', '9'}};
+		{'4', '5', '6'}, 
+		{'7', '8', '9'}};
 	char mark[2] = {'X', 'O'};
 	int winner, out, player, choice;
 	winner = out = player = 0;
@@ -42,7 +42,7 @@ int main() {
 						else --player;
 						winner = player;
 			}
-			if( (table[0][row] == 'O' && table[1][row] == 'O' && table[2][row] == 'O') || 
+			if( (table[0][row] == 'O' && table[1][row] == 'O' && table[2][row] == 'O') ||  
 					(table[0][row] == 'X' && table[1][row] == 'X' && table[2][row] == 'X')) {
 						out = 1;
 						if(player == 0) ++player;
@@ -50,6 +50,9 @@ int main() {
 						winner = player;
 			}
 			//La diagonale de [0][0] à [2][2]
+			// X O
+			//   X
+			//   O X
 			if( (table[0][0] == 'O' && table[1][1] == 'O' && table[2][2] == 'O') || 
 					(table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X')) {
 						out = 1;
@@ -58,6 +61,9 @@ int main() {
 						winner = player;
 			}
 			//La diagonale de [0][2] à [2][0]
+			//  O O X
+			//    X
+			//  X
 			if( (table[0][2] == 'O' && table[1][1] == 'O' && table[2][0] == 'O') || 
 					(table[0][2] == 'X' && table[1][1] == 'X' && table[2][0] == 'X')) {
 						out = 1;

@@ -24,6 +24,27 @@ class QTextBrowser;
 namespace UI {
 	class MainWindow;
 	class topBar;
+	class allRightWidget;
+}
+
+class allRightWidget : public QWidget {
+	Q_OBJECT
+	public:
+		allRightWidget(QWidget *child);
+	private:
+		QWidget *topRight;
+		QWidget *middleTopRight;
+		QWidget *bottomRight;
+		QWidget *bottomTopRight;
+}
+
+class allLeftWidget : public QWidget {
+	Q_OBJECT
+	public: 
+		allLeftWidget(QWidget *child);
+	private:
+		QWidget *tableur;
+		QWidget *graph;
 }
 
 class topBar : public QHBoxLayout {

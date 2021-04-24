@@ -7,20 +7,9 @@ class coreMainGame {
 		int O_;
 		int X_; 
 		int player;
-		int storageEmplacement;
+		int storageEmplacement[2];
 	public:
-		list<int> localiseMark (int where){
-			int i, j;
-			i = j = 0;
-			while(i*10+j != where){
-				j++;
-				if(j == 10){
-					++i;
-					j=0;
-				}
-			}
-			return list<int> (i, j);
-		}
+
 		void fillBoard(){
 			player = 0;
 			mark[0] = 'O';
@@ -46,27 +35,28 @@ class coreMainGame {
 			}
 			cout << "+---+---+---+---+---+---+---+---+---+---+" << endl;
 		}
-		void deplaceMark(int from, int to, int player){
+		void deplaceMark(int to, int from, int player){
 			if((from < 0 && from > 99) || (to < 0 && to > 99))  //On vérifie que le joueur ne propose pas un nombre au pif
 				return;
 			if(!(to-from != -11 || to-from != -9) ||  //On vérifie que le joueur parte en diagonale vers le bas
 					!(to-from != 11 || to-from != 9)) //On vérifie encore pour la daigonale vers le haut)
 					return;		
-			cout << localiseMark(from).begin() << endl;			
-			/*if(board[i][j] == mark[player]){ // On vérifie bien que le joueur bouge son pion
-				if((board[i][j] == 'X' && board[storageEmplacement[0]][storageEmplacement[1]] == 'X' ) ||  // On vérifie qu'il ne se mange pas lui mÃªme...
-					(board[i][j]  == 'O' && board[storageEmplacement[0]][storageEmplacement[1]] == 'O'))
+			int i, j;
+			i = j = 0;
+			if(board[i][j] == mark[player]){ // On vérifie bien que le joueur bouge son pion
+				i = j = 0;
+				if(board[i][j] == mark[player] && board[storageEmplacement[0]][storageEmplacement[1]] == mark[player])  // On vérifie qu'il ne se mange pas lui mÃªme...
 						return;
 				else { //Sinon on enlève bien les pions restants :)
-					if(board[i][j] == 'x' && mark[player] == 'O') --X_; 
+					if(board[i][j] == 'X' && mark[player] == 'O') --X_; 
 					if(board[i][j] == 'O' && mark[player] == 'X') --O_;
-					board[storageEmplacement[0]][storageEmplacement[1]] == ' ';
+					board[storageEmplacement[0]][storageEmplacement[1]] = ' ';
+					board[i][j] = mark[player];
 				}
-				board[storageEmplacement[0]][storageEmplacement[1]] == mark[player];
 				switchPlayer();
-			}else cout << i << " " << j<< " /!\\ Ce n'est pas ton pion !" << endl; */
-			
+			}else cout << i << " " << j<< " /!\\ Ce n'est pas ton pion !" << endl; 	
 		}
+
 		void switchPlayer(){
 			if(player ==0) ++player;
 			else --player;
