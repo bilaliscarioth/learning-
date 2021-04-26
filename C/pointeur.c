@@ -1,14 +1,14 @@
 #include "stdio.h"
 
 int main(){
-  int arr = 20;
-  int *test; //Pointeur.
-  test = &arr; // On met vers la bonne ref
+	int arr[5]  =	{10, 20, 25, 33, 44};
+	int *test;
+	test = &arr;
 
-  printf(">> %x \n", &arr);
-  printf(">> %x \n", test);
-
-  printf(">> %d \n", arr);
-  printf(">> %d \n", *test);
-
+	int i = 0;
+	while((*test) != 25){	
+		test = &arr[i];
+		printf("%d \n", *test);
+		i++;
+	}
 }

@@ -10,9 +10,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent){
 	toolBar	= addToolBar(tr("Outils"));
 	addToolBar(Qt::TopToolBarArea, toolBar);
 
-
-	setCentralWidget(new QWidget);
-	centralWidget()->setLayout(rBar->topRight);
+	QDockWidget *dockWidget = new QDockWidget(tr("Paramètres"), this);
+	dockWidget->setAllowedAreas(Qt::LeftDockWidgetArea |
+                                Qt::RightDockWidgetArea);
+	dockWidget->setWidget(rBar);
+	addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
 }
 
 
