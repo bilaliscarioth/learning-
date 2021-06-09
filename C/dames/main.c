@@ -74,6 +74,6 @@ int main(){
 				if(!checkDeplacement(to, from))
 					deplaceChess(&oldPosition, &newPosition, &core);
 			}	
-	²	}
+		}
 	}
 }
