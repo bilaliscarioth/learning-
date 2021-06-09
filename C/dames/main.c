@@ -1,7 +1,7 @@
-#include "stdio.h"
-#include "stdbool.h"
-#include "stdlib.h"
-#include "math.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <math.h>
 #include "include.h"
 
 chess *findPosition(int place, coreGame *core){
@@ -9,24 +9,26 @@ chess *findPosition(int place, coreGame *core){
 	x = y = 0;
 	while(place != (x*10)+y){
 		if(x == 10){
-			x = 0;
-			++y;
+			y = 0;
+			++x;
 		}
-		x++;
+		y++;
 	}
 	return &(core->grid[x][y]);
 };
 
 void startGame(coreGame *core){
-	for(int x  = 0; x < 10; ++x){
-		for (int y = 0; y < 10; ++y){
-			(core->grid[x][y]) = createChess(x, y, ' ');
-			if((x+y+1)%2 == 0 && (x*10+y) <= 39)
-				core->grid[x][y] = createChess(x, y, 'x');
-			else if((x+y+1)%2 == 0 && (x*10+y) > 59)
-				core->grid[x][y] = createChess(x, y, 'o');
-		}
-	}
+	int x, y;
+	x = y = 0;
+        for(x = 0; x < 10; ++x){
+                for (y = 0; y < 10; ++y){
+                        (core->grid[x][y]) = createChess(x, y, ' ');
+                        if((x+y+1)%2 == 0 && (x*10+y) <= 39)
+                                core->grid[x][y] = createChess(x, y, 'x');
+                        else if((x+y+1)%2 == 0 && (x*10+y) > 59)
+                                core->grid[x][y] = createChess(x, y, 'o');
+                }
+        }
 };
 
 void deplaceChess(chess *old, chess *new, coreGame *core){	
@@ -41,17 +43,17 @@ void deplaceChess(chess *old, chess *new, coreGame *core){
 }
 
 void printGrid(coreGame *core){
-	for(int x = 0; x < 10; ++x){
-		printf("+---+---+---+---+---+---+---+---+---+---+\n");
-		for (int y = 0; y < 10; ++y)
-			printf("| %c ", (core->grid[x][y]).player);
-		printf("| \n");
-	}
-	printf("+---+---+---+---+---+---+---+---+---+---+\n");
+	int x = 0;
+	do{
+		if(x%10 == 0) printf("\n+---+---+---+---+---+---+---+---+---+---+\n");
+		printf("| %c ", findPosition(x, core)->player);
+		++x;
+	}while(x  < 100);
+	printf("\n+---+---+---+---+---+---+---+---+---+---+\n");
 }
 
 bool checkDeplacement(int to, int from){ 
-	if((to > 100 || to < 0) && (from > 100 || from < 0)) return true; //Si on dépasse le tableau;
+	if((to > 100 || to < 0) && (from > 100 || from < 0)) return true; /*Si on dépasse le tableau; */
 	return false;
 }
 int changePlayerTurn(coreGame *core){
@@ -75,5 +77,5 @@ int main(){
 					deplaceChess(&oldPosition, &newPosition, &core);
 			}	
 		}
-	}
+	} 
 }
