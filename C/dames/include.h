@@ -23,8 +23,10 @@ struct chess createChess(int x, int y, char player){
 	temp.player = player;
 	return temp;
 };
-struct chess deleteChess(chess *toRemove){
-	free(toRemove);
+struct chess deleteChess(chess *toRemove, coreGame *core){
+	if(toRemove->player == 'o') --core->O_;
+	else --core->X_;
+	*toRemove = createChess(toRemove->x, toRemove->y, ' ');
 };
 struct coreGame createParty(int bChess, int wChess){
 	struct coreGame tmp;
