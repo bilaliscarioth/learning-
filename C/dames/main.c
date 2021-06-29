@@ -20,15 +20,15 @@ chess *findPosition(int place, coreGame *core){
 void startGame(coreGame *core){
 	int x, y;
 	x = y = 0;
-        for(x = 0; x < 10; ++x){
-                for (y = 0; y < 10; ++y){
-                        (core->grid[x][y]) = createChess(x, y, ' ');
-                        if((x+y+1)%2 == 0 && (x*10+y) <= 39)
-                                core->grid[x][y] = createChess(x, y, 'x');
-                        else if((x+y+1)%2 == 0 && (x*10+y) > 59)
-                                core->grid[x][y] = createChess(x, y, 'o');
-                }
-        }
+	for(x = 0; x < 10; ++x){
+		for (y = 0; y < 10; ++y){
+			(core->grid[x][y]) = createChess(x, y, ' ');
+			if((x+y+1)%2 == 0 && (x*10+y) <= 39)
+				core->grid[x][y] = createChess(x, y, 'x');
+			else if((x+y+1)%2 == 0 && (x*10+y) > 59)
+				core->grid[x][y] = createChess(x, y, 'o');
+		}
+	}
 };
 
 void deplaceChess(chess *old, chess *new, coreGame *core){	
@@ -46,7 +46,7 @@ void deplaceChess(chess *old, chess *new, coreGame *core){
 void printGrid(coreGame *core){
 	int x = 0;
 	do{
-		if(x%10 == 0) printf("\n+---+---+---+---+---+---+---+---+---+---+\n");
+		if(!(x%10)) printf("\n+---+---+---+---+---+---+---+---+---+---+\n");
 		printf("| %c ", findPosition(x, core)->player);
 		++x;
 	}while(x  < 100);
