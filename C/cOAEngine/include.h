@@ -1,8 +1,6 @@
-#include <GLFW/glfw3.h>
-#include <GLES2/gl2.h>
-#include <EGL/egl.h>
 #include <glad/glad.h>
-#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <ft2build.h>
 #include <stdio.h>
 
 #define MAX_SPEED 0.4
